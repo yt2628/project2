@@ -6,7 +6,7 @@ let hypotenuse2;
 
 function setup() {
   cnv = createCanvas(500, 500);
-  cnv.mouseClicked(saveData);
+  // cnv.mouseClicked(saveData);
   ellipseMode(CENTER);
 
 
