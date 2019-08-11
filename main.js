@@ -4,11 +4,17 @@ let opposite2;
 let hypotenuse1;
 let hypotenuse2;
 
+var database;
+// var nameInput;
+// var submitButton;
+
 function setup() {
   cnv = createCanvas(500, 500);
   // cnv.mouseClicked(saveData);
   ellipseMode(CENTER);
-
+  // nameInput = createInput('Your Name');
+  // submitButton = createButton('Submit');
+  // submitButton.mousePressed(submitName);
 
     // Your web app's Firebase configuration
     var firebaseConfig = {
@@ -23,7 +29,8 @@ function setup() {
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
 
-    var database = firebase.database();
+    database = firebase.database();
+
     var ref = database.ref('scores');
     var data = {
       name: "Sarah",
@@ -31,6 +38,16 @@ function setup() {
     }
     ref.push(data);
 }
+
+// function submitName() {
+//   var nameData = {
+//     name: nameInput.value(),
+//   }
+//   console.log(nameData);
+//   var ref = database.ref('scores');
+//   ref.push(data);
+// }
+
 
 let centerX = 250;
 let centerY = 250;
