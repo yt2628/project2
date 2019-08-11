@@ -5,16 +5,16 @@ let hypotenuse1;
 let hypotenuse2;
 
 var database;
-// var nameInput;
-// var submitButton;
+var nameInput;
+var submitButton;
 
 function setup() {
   cnv = createCanvas(500, 500);
   // cnv.mouseClicked(saveData);
   ellipseMode(CENTER);
-  // nameInput = createInput('Your Name');
-  // submitButton = createButton('Submit');
-  // submitButton.mousePressed(submitName);
+  nameInput = createInput('Your Name');
+  submitButton = createButton('Submit');
+  submitButton.mousePressed(submitName);
 
     // Your web app's Firebase configuration
     var firebaseConfig = {
@@ -30,23 +30,26 @@ function setup() {
     firebase.initializeApp(firebaseConfig);
 
     database = firebase.database();
-
-    var ref = database.ref('scores');
-    var data = {
-      name: "Sarah",
-      score: 78
-    }
-    ref.push(data);
+    ref.on('value', gotData, errorData);
 }
 
-// function submitName() {
-//   var nameData = {
-//     name: nameInput.value(),
-//   }
-//   console.log(nameData);
-//   var ref = database.ref('scores');
-//   ref.push(data);
-// }
+function gotData(data) {
+  console.log(data.val());
+}
+
+function errorData(error) {
+  console.log('Error!');
+  console.log(error);
+}
+
+function submitName() {
+  var nameData = {
+    name: nameInput.value(),
+  }
+  console.log(nameData);
+  var ref = database.ref('scores');
+  ref.push(data);
+}
 
 
 let centerX = 250;
