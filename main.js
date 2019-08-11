@@ -10,6 +10,20 @@ function setup() {
   ellipseMode(CENTER);
 
 
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyArnds1P8ocRZIOynDpKz2A8GYytDd3bVo",
+      authDomain: "project2-91f3c.firebaseapp.com",
+      databaseURL: "https://project2-91f3c.firebaseio.com",
+      projectId: "project2-91f3c",
+      storageBucket: "",
+      messagingSenderId: "503214537045",
+      appId: "1:503214537045:web:3930ef65b38dfdb6"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  
+
 }
 
 let centerX = 250;
