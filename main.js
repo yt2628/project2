@@ -32,6 +32,7 @@ function setup() {
     firebase.initializeApp(firebaseConfig);
 
     database = firebase.database();
+    ref = database.ref('scores');
     ref.on('value', gotData, errorData);
 }
 
@@ -56,7 +57,6 @@ function submitName() {
   nameData = {
     name: nameInput.value(),
   }
-  ref = database.ref('scores');
   ref.push(nameData);
 }
 
