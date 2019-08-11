@@ -5,6 +5,7 @@ let hypotenuse1;
 let hypotenuse2;
 
 var database;
+var ref;
 var nameInput;
 var submitButton;
 var nameData;
@@ -55,7 +56,7 @@ function submitName() {
   nameData = {
     name: nameInput.value(),
   }
-  var ref = database.ref('scores');
+  ref = database.ref('scores');
   ref.push(nameData);
 }
 
