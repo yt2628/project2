@@ -22,8 +22,14 @@ function setup() {
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
-  
 
+    var database = firebase.database();
+    var ref = database.ref('scores');
+    var data = {
+      name: "Sarah",
+      score: 78
+    }
+    ref.push(data);
 }
 
 let centerX = 250;
