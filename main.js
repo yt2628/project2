@@ -7,6 +7,7 @@ let hypotenuse2;
 var database;
 var nameInput;
 var submitButton;
+var nameData;
 
 function setup() {
   cnv = createCanvas(500, 500);
@@ -33,8 +34,16 @@ function setup() {
     ref.on('value', gotData, errorData);
 }
 
-function gotData(data) {
-  console.log(data.val());
+function gotData(nameData) {
+  console.log(nameData.val());
+  var names = nameData.val();
+  var keys = Object.keys(names);
+  for (var i = 0; i < keys.lengths; i++) {
+    var k = keys[i];
+    var userName = names[k].name;
+    var li = createElement('li', userName);
+    li.parent('listContent');
+  }
 }
 
 function errorData(error) {
@@ -43,12 +52,11 @@ function errorData(error) {
 }
 
 function submitName() {
-  var nameData = {
+  nameData = {
     name: nameInput.value(),
   }
-  console.log(nameData);
   var ref = database.ref('scores');
-  ref.push(data);
+  ref.push(nameData);
 }
 
 
